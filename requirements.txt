@@ -1,0 +1,6 @@
+flask
+openai
+langchain
+faiss-cpu
+python-dotenv
+sentence-transformers
