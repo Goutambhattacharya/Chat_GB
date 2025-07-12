@@ -1,0 +1,29 @@
+.chat-box {
+    height: 500px;
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.user {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.message.bot {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}

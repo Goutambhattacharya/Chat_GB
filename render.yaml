@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: chatbot-ui
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false

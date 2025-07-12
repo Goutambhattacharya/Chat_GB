@@ -1,41 +1,28 @@
-from flask import Flask, request, jsonify
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from dotenv import load_dotenv
-import openai
+from flask import Flask, render_template, request, session
+from chatbot_logic import ask_bot
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("sk-proj-5iZMEE8fLmyOxEU3czDfiq7Syzt_jbcb_UYIEUYVhJuHX8HOvwfRHZW9NAGy5HJg_vkCvU9ronT3BlbkFJnvIJyHVb49cTkYqnqIQHTrpXVweeePenDMgIvtf74jwd-gXxipMVoaxCNyeRqU-yeMcQV-reIAKEY")
 
 app = Flask(__name__)
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "default_secret_key")  # Needed for session
 
-# Load and chunk your document
-with open("your_doc.txt", "r", encoding="utf-8") as f:
-    raw_text = f.read()
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if "chat_history" not in session:
+        session["chat_history"] = []
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-chunks = text_splitter.split_text(raw_text)
+    if request.method == "POST":
+        user_input = request.form["user_input"]
+        response = ask_bot(user_input)
 
-# Create embeddings and vector store
-embeddings = OpenAIEmbeddings()
-db = FAISS.from_texts(chunks, embedding=embeddings)
+        # Append to chat history
+        session["chat_history"].append({"sender": "user", "text": user_input})
+        session["chat_history"].append({"sender": "bot", "text": response})
+        session.modified = True
 
-@app.route('/chat', methods=['POST'])
-def chat():
-    user_query = request.json.get("message")
-    docs = db.similarity_search(user_query)
-    context = "\n".join([doc.page_content for doc in docs])
-    
-    prompt = f"Use the below context to answer the question.\n\nContext:\n{context}\n\nQuestion: {user_query}"
-    
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    
-    return jsonify({"response": response['choices'][0]['message']['content']})
+    return render_template("index.html", chat_history=session["chat_history"])
 
 if __name__ == "__main__":
     app.run(debug=True)
