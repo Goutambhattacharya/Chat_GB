@@ -74,4 +74,23 @@ MIT License © Goutam Bhattacharya
 
 If you found this project useful, feel free to ⭐ star the repo or contribute!
 
+---
+
+### 👨‍💻 Made with ❤️ by [Goutam Bhattacharya](https://github.com/Goutambhattacharya)
+
+<p align="left">
+  <a href="https://github.com/Goutambhattacharya" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-%23121011.svg?style=flat&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="mailto:bhattacharya_goutam2003@yahoo.com" target="_blank">
+    <img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+  <a href="[https://www.linkedin.com/in/goutam-bhattacharya-pmp-%C2%AE-b6167289/]/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+</p>
+
+⭐️ If you found this project useful, consider starring it!
+
+
 
