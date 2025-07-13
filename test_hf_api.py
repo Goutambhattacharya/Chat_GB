@@ -1,6 +1,6 @@
 import requests
 
-hf_token = "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"  # Replace with your new token if needed
+hf_token = "88888******************"  # Replace with your new token if needed
 
 API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
 
