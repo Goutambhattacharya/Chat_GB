@@ -63,3 +63,15 @@ Edit
 python app.py
 App will run at: http://localhost:5000
 
+
+## 📜 License
+
+MIT License © Goutam Bhattacharya
+
+---
+
+### 👨‍💻 Made with ❤️ by [Goutam Bhattacharya](https://github.com/Goutambhattacharya)
+
+If you found this project useful, feel free to ⭐ star the repo or contribute!
+
+
