@@ -4,6 +4,11 @@ Welcome to **Chat_GB** – a simple, interactive chatbot built with **Flask**, p
 
 This project demonstrates how to integrate modern LLMs via API, create a web interface, and deploy it with zero infrastructure hassle.
 
+
+
+[![Run on Replit](https://replit.com/badge/github/Goutambhattacharya/Chat_GB)](https://replit.com/github/Goutambhattacharya/Chat_GB)
+
+
 ---
 
 ## 🌐 Live Demo
