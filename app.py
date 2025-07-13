@@ -15,9 +15,12 @@ def index():
 
     if request.method == "POST":
         user_input = request.form["user_input"]
-        response = ask_bot(user_input)
+        try:
+            response = ask_bot(user_input)
+        except Exception as e:
+            response = f"⚠️ Error occurred: {str(e)}"
+            print("Error in ask_bot:", e)  # Logged to error log
 
-        # Append to chat history
         session["chat_history"].append({"sender": "user", "text": user_input})
         session["chat_history"].append({"sender": "bot", "text": response})
         session.modified = True
